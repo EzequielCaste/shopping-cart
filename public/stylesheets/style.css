@@ -22,11 +22,11 @@ main {
   grid-template-columns: 1fr;  
 }
 main article {
-  width: 90%;
+  width: 80%;
   margin: 1em auto;
   max-width: 20em;
 }
-.container {
+.container, nav {
   margin: 0 auto;
   max-width: 55em;
 }
@@ -151,7 +151,7 @@ nav ul li a {
 }
 .card img {
   padding: 1em;
-  width:55%;
+  width:100%;
 }
 .card-body {
   text-align: start;
@@ -222,9 +222,7 @@ footer {
   main {
     grid-template-columns: 1fr 1fr;
   }
-  .container {    
-    max-width: 45em;
-  }
+  
 }
 @media (min-width: 700px) {
   main {
@@ -232,3 +230,9 @@ footer {
   }
 }
 
+@media (max-width: 300px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
