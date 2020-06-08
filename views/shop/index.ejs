@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+    
+
+  <main>
+    <% products.forEach( product => { %>
+      <article>
+        <div class="card"  >
+          <img src="<%= product.imagePath %>"  class="" alt="...">
+          <div class="card-body">
+            <h2 class="card-title"><%= product.title  %></h2>
+            <p class="card-text"><%= product.description %> </p>
+            <div class="price">
+              $ <%= product.price %> 
+            </div>
+            <a href="/add-to-cart/<%= product.id %> " class="btn">Add to Cart</a>
+          </div> 
+      </article>
+    <%})%>    
+  </main>
+    
+
+<%- include("../partials/footer") %>

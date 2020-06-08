@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+    
+
+  <section id="shop-cart">
+    <% if (products === null) { %>
+      <h1>No items in cart</h1> 
+      <p>Your cart is empty</p>           
+    <% } else { %>     
+      <% products.forEach(product => { %> 
+        <article>
+          <div class="card"  >
+            <img src="<%= product.item.imagePath %>"  class="" alt="...">
+            <div class="card-body">
+              <h4 class="card-title"><%= product.item.title  %></h4>
+              <p class="card-text">Price: $ <%= product.item.price %> </p>
+              <div class="card-qty">
+                Qty: <%= product.qty %> 
+              </div>
+              <div class="cart-buttons">                
+                <a class="btn add" href="/add-one/<%= product.item._id %>"><i class="fas fa-plus-circle"></i></a>
+                <a class="btn remove" href="/remove-item/<%= product.item._id %>"><i class="fas fa-minus"></i></a>
+              </div>              
+            </div> 
+        </article>
+      <% }) %> 
+    
+
+    <article class="card" id="total-price">
+      <p>Total Items</p>
+      <p id="totalQty"> <%= session.cart.totalQty %></p>
+      <p>Total Payment</p>
+      <p id="totalPayment">$ <%= totalPrice %></p>      
+      <hr>
+      <div id="checkout-btn">
+        <a href="/checkout">Checkout</a>
+        <a id="clear" href="/clear-cart">Clear</a>
+      </div>
+      
+
+    </article>
+
+    
+  <% } %> 
+  </section>
+    
+
+<%- include("../partials/footer") %>

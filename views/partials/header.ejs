@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+  <title>Shopping Cart</title>
+</head>
+<body>
+  <nav>
+    <div id="logo"><a href="/"><i class="fas fa-gamepad"></i></a></div>
+    <ul>
+      <li>
+        <a href="/about">About</a>
+       </li>
+      <li>
+        <a href="/shopping-cart">
+          <i class="fas fa-shopping-cart"></i> 
+          Cart (
+          <span id="total-in-cart">
+            <%= Boolean(session.cart) ? session.cart.totalQty : 0 %> 
+          </span> )
+        </a>
+      </li>
+      <li>
+        <div class="dropdown">
+          <button class="dropbtn" onclick="myFunction()">
+            <i class="fas fa-user"></i> User 
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content" id="myDropdown">           
+            <% if (login) { %> 
+            <a href="/user/profile">Profile</a>
+            <a href="/user/logout">Logout</a>
+            <% } else { %>
+            <a href="/user/signin">Sign In</a>
+            <a href="/user/signup">Sign Up</a>
+            <% } %> 
+          </div>
+          </div>         
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
