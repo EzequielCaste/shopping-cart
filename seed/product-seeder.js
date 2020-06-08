@@ -1,7 +1,8 @@
 const Product = require("../models/product");
 const mongoose = require("mongoose")
+require('dotenv').config();
 
-mongoose.connect("mongodb://localhost/shop-cart", {  useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect(process.env.MONGO_URL, {  useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 
 const products = [
   new Product({
