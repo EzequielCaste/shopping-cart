@@ -8,10 +8,11 @@ const session = require('express-session');
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user')
 const MongoStore = require('connect-mongo')(session);
+require('dotenv').config();
 
 const app = express();
-
-mongoose.connect("mongodb://localhost/shop-cart", {  useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
+//"mongodb://localhost/shop-cart"
+mongoose.connect(process.env.MONGO_URL, {  useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
