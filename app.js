@@ -31,11 +31,6 @@ app.use(session({
   cookie: { maxAge: 5 * 60 * 1000}
 }))
 
-// app.use(function(req, res, next) {
-//   app.locals.login = req.verify;
-//   next();
-// })
-
 app.use(function(req, res, next) {
   app.locals.session = req.session;
   app.locals.login = Boolean(req.session.authToken);
@@ -44,8 +39,6 @@ app.use(function(req, res, next) {
 
 app.use('/user', userRouter)
 app.use('/', indexRouter);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
